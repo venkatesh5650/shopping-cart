@@ -20,14 +20,13 @@ export default function Items() {
   };
 
   const checkout = async () => {
-  try {
-    await api.post("/orders");
-    showToast("Order successful");
-  } catch (err) {
-    showToast("Cart is empty. Add items before checkout.");
-  }
-};
-
+    try {
+      await api.post("/orders");
+      showToast("Order successful");
+    } catch (err) {
+      showToast("Cart is empty. Add items before checkout.");
+    }
+  };
 
   const showCart = async () => {
     const res = await api.get("/carts");
@@ -38,7 +37,6 @@ export default function Items() {
       return;
     }
 
-    // Count quantities
     const counts = {};
     items.forEach((item) => {
       counts[item.name] = (counts[item.name] || 0) + 1;
@@ -74,12 +72,24 @@ export default function Items() {
     showToast(`Last Order: ${summary}`);
   };
 
+  const logout = async () => {
+    try {
+      await api.post("/users/logout");
+    } catch (err) {
+      // ignore errors, still logout locally
+    }
+
+    localStorage.removeItem("token");
+    window.location.reload(); // go back to login screen
+  };
+
   return (
     <div>
       <div className="top-bar">
         <button onClick={checkout}>Checkout</button>
         <button onClick={showCart}>Cart</button>
         <button onClick={showOrders}>Order History</button>
+        <button onClick={logout}>Logout</button>
       </div>
 
       <div className="items-container">
