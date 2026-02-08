@@ -5,17 +5,21 @@ export default function Login({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async () => {
+  const handleLogin = async (user, pass) => {
     try {
       const res = await api.post("/users/login", {
-        username,
-        password,
+        username: user,
+        password: pass,
       });
       localStorage.setItem("token", res.data.token);
       onLogin();
     } catch (err) {
       alert(err.response?.data?.message || "Invalid username/password");
     }
+  };
+
+  const demoLogin = () => {
+    handleLogin("demo", "demo123");
   };
 
   return (
@@ -34,7 +38,16 @@ export default function Login({ onLogin }) {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button onClick={handleLogin}>Login</button>
+        <button onClick={() => handleLogin(username, password)}>
+          Login
+        </button>
+
+        <button
+          onClick={demoLogin}
+          style={{ marginTop: "10px", background: "#16a34a" }}
+        >
+          Demo Login
+        </button>
       </div>
     </div>
   );
