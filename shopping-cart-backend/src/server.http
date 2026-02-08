@@ -1,0 +1,100 @@
+### Register user
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "123456"
+}
+
+###
+
+### Register user 2
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+  "username": "test2user",
+  "password": "24680"
+}
+
+###
+
+### Login user (first time)
+POST http://localhost:5000/users/login
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "123456"
+}
+
+###
+
+### Login user  (first time)
+POST http://localhost:5000/users/login
+Content-Type: application/json
+
+{
+  "username": "test2user",
+  "password": "24680"
+}
+
+### Login user again (retry)
+POST http://localhost:5000/users/login
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "123456"
+}
+
+
+
+### Create item
+POST http://localhost:5000/items
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTg3MTViNGZiN2QwZDc4NDBjNTExOWIiLCJpYXQiOjE3NzA0NjA2MjcsImV4cCI6MTc3MDU0NzAyN30.KpzsoU_MTr2fTqM8UAjgPb60w_F-pkEf1SgAsTjFY4Q
+
+{
+  "name": "Fridge"
+}
+
+
+### List items
+GET http://localhost:5000/items
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTg3MTViNGZiN2QwZDc4NDBjNTExOWIiLCJpYXQiOjE3NzA1MTY3MjIsImV4cCI6MTc3MDYwMzEyMn0.aE8pdydtG_kgZMjj4WS57Sq9E87pazaBxswm3MdTbtU
+
+
+### Add item to cart
+POST http://localhost:5000/carts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTg3MTViNGZiN2QwZDc4NDBjNTExOWIiLCJpYXQiOjE3NzA1MTY3MjIsImV4cCI6MTc3MDYwMzEyMn0.aE8pdydtG_kgZMjj4WS57Sq9E87pazaBxswm3MdTbtU
+
+{
+  "itemId": "6987ef6803af1ac53a87b4c0"
+}
+
+
+
+### Get cart
+GET http://localhost:5000/carts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTg3MTViNGZiN2QwZDc4NDBjNTExOWIiLCJpYXQiOjE3NzA1MTY3MjIsImV4cCI6MTc3MDYwMzEyMn0.aE8pdydtG_kgZMjj4WS57Sq9E87pazaBxswm3MdTbtU
+
+
+
+### Place order
+POST http://localhost:5000/orders
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTg3MTViNGZiN2QwZDc4NDBjNTExOWIiLCJpYXQiOjE3NzA1MTY3MjIsImV4cCI6MTc3MDYwMzEyMn0.aE8pdydtG_kgZMjj4WS57Sq9E87pazaBxswm3MdTbtU
+
+
+### Get orders
+GET http://localhost:5000/orders
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTg3MTViNGZiN2QwZDc4NDBjNTExOWIiLCJpYXQiOjE3NzA1MTY3MjIsImV4cCI6MTc3MDYwMzEyMn0.aE8pdydtG_kgZMjj4WS57Sq9E87pazaBxswm3MdTbtU
+
+
+
+### Logout user
+POST http://localhost:5000/users/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTg3MTViNGZiN2QwZDc4NDBjNTExOWIiLCJpYXQiOjE3NzA0NjA2MjcsImV4cCI6MTc3MDU0NzAyN30.KpzsoU_MTr2fTqM8UAjgPb60w_F-pkEf1SgAsTjFY4Q
+
