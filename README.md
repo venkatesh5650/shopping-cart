@@ -1,5 +1,15 @@
 # Shopping Cart Application
 
+
+## Live Demo
+https://shopping-cart-hazel-mu.vercel.app
+
+## Demo Credentials
+Username: demo  
+Password: demo123
+
+## Overview
+
 This project implements a simple e-commerce flow:
 
 User → Login → Add Items to Cart → Checkout → Order History
@@ -78,3 +88,5 @@ http://localhost:5000
 
 Frontend runs on:
 http://localhost:5173
+
+

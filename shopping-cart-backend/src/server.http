@@ -18,7 +18,18 @@ Content-Type: application/json
   "password": "24680"
 }
 
-###
+
+
+### demo user Registration
+
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+  "username": "demo",
+  "password": "demo123"
+}
+
 
 ### Login user (first time)
 POST http://localhost:5000/users/login
